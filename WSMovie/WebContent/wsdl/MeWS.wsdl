@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addMe">
+    <complexType>
+     <sequence>
+      <element name="me" type="impl:Me"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Me">
+    <sequence>
+     <element name="age" nillable="true" type="xsd:string"/>
+     <element name="fullname" nillable="true" type="xsd:string"/>
+     <element name="hobby" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nickname" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="addMeResponse">
+    <complexType>
+     <sequence>
+      <element name="addMeReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeMe">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeMeResponse">
+    <complexType>
+     <sequence>
+      <element name="removeMeReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMine">
+    <complexType/>
+   </element>
+   <element name="getMineResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getMineReturn" type="impl:Me"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateMe">
+    <complexType>
+     <sequence>
+      <element name="me" type="impl:Me"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateMeResponse">
+    <complexType>
+     <sequence>
+      <element name="updateMeReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMebyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMebyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getMebyIdReturn" type="impl:Me"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="updateMeResponse">
+
+      <wsdl:part element="impl:updateMeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMebyIdResponse">
+
+      <wsdl:part element="impl:getMebyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMeResponse">
+
+      <wsdl:part element="impl:addMeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateMeRequest">
+
+      <wsdl:part element="impl:updateMe" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeMeResponse">
+
+      <wsdl:part element="impl:removeMeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMineResponse">
+
+      <wsdl:part element="impl:getMineResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMebyIdRequest">
+
+      <wsdl:part element="impl:getMebyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMineRequest">
+
+      <wsdl:part element="impl:getMine" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeMeRequest">
+
+      <wsdl:part element="impl:removeMe" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMeRequest">
+
+      <wsdl:part element="impl:addMe" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MeWS">
+
+      <wsdl:operation name="addMe">
+
+         <wsdl:input message="impl:addMeRequest" name="addMeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addMeResponse" name="addMeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeMe">
+
+         <wsdl:input message="impl:removeMeRequest" name="removeMeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeMeResponse" name="removeMeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMine">
+
+         <wsdl:input message="impl:getMineRequest" name="getMineRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMineResponse" name="getMineResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateMe">
+
+         <wsdl:input message="impl:updateMeRequest" name="updateMeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateMeResponse" name="updateMeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMebyId">
+
+         <wsdl:input message="impl:getMebyIdRequest" name="getMebyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMebyIdResponse" name="getMebyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MeWSSoapBinding" type="impl:MeWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addMe">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addMeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addMeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeMe">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeMeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeMeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMine">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMineRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMineResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateMe">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateMeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateMeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMebyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMebyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMebyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MeWSService">
+
+      <wsdl:port binding="impl:MeWSSoapBinding" name="MeWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/MeWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

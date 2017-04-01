@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addCompany">
+    <complexType>
+     <sequence>
+      <element name="company" type="impl:Company"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Company">
+    <sequence>
+     <element name="foundation" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="objetive" nillable="true" type="xsd:string"/>
+     <element name="owner" nillable="true" type="xsd:string"/>
+     <element name="partner" nillable="true" type="xsd:string"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="addCompanyResponse">
+    <complexType>
+     <sequence>
+      <element name="addCompanyReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCompanybyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCompanybyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getCompanybyIdReturn" type="impl:Company"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCompany">
+    <complexType>
+     <sequence>
+      <element name="company" type="impl:Company"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCompanyResponse">
+    <complexType>
+     <sequence>
+      <element name="updateCompanyReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCompany">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCompanyResponse">
+    <complexType>
+     <sequence>
+      <element name="removeCompanyReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCompanies">
+    <complexType/>
+   </element>
+   <element name="getCompaniesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCompaniesReturn" type="impl:Company"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCompaniesRequest">
+
+      <wsdl:part element="impl:getCompanies" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompanybyIdResponse">
+
+      <wsdl:part element="impl:getCompanybyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCompanyRequest">
+
+      <wsdl:part element="impl:addCompany" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCompanyResponse">
+
+      <wsdl:part element="impl:addCompanyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCompanyRequest">
+
+      <wsdl:part element="impl:updateCompany" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCompanyResponse">
+
+      <wsdl:part element="impl:updateCompanyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCompanyRequest">
+
+      <wsdl:part element="impl:removeCompany" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCompanyResponse">
+
+      <wsdl:part element="impl:removeCompanyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompanybyIdRequest">
+
+      <wsdl:part element="impl:getCompanybyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCompaniesResponse">
+
+      <wsdl:part element="impl:getCompaniesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CompanyWS">
+
+      <wsdl:operation name="addCompany">
+
+         <wsdl:input message="impl:addCompanyRequest" name="addCompanyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addCompanyResponse" name="addCompanyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompanybyId">
+
+         <wsdl:input message="impl:getCompanybyIdRequest" name="getCompanybyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCompanybyIdResponse" name="getCompanybyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCompany">
+
+         <wsdl:input message="impl:updateCompanyRequest" name="updateCompanyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateCompanyResponse" name="updateCompanyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCompany">
+
+         <wsdl:input message="impl:removeCompanyRequest" name="removeCompanyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeCompanyResponse" name="removeCompanyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompanies">
+
+         <wsdl:input message="impl:getCompaniesRequest" name="getCompaniesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCompaniesResponse" name="getCompaniesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CompanyWSSoapBinding" type="impl:CompanyWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addCompany">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addCompanyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addCompanyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompanybyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCompanybyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCompanybyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCompany">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateCompanyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateCompanyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCompany">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeCompanyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeCompanyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCompanies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCompaniesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCompaniesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CompanyWSService">
+
+      <wsdl:port binding="impl:CompanyWSSoapBinding" name="CompanyWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/CompanyWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

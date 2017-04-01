@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FruitWSService WSDL service -->
+
+  <service name="FruitWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="FruitWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="FruitWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.FruitWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="FruitWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addFruit" qname="operNS:addFruit" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addFruitReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:fruit" xmlns:pns="http://ws.utng.edu.mx" type="tns:Fruit" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="getFruits" qname="operNS:getFruits" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getFruitsReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Fruit" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="getFruitbyId" qname="operNS:getFruitbyId" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getFruitbyIdReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Fruit" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="removeFruit" qname="operNS:removeFruit" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeFruitReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateFruit" qname="operNS:updateFruit" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:updateFruitReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:fruit" xmlns:pns="http://ws.utng.edu.mx" type="tns:Fruit" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <parameter name="allowedMethods" value="addFruit getFruits updateFruit getFruitbyId removeFruit"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:Fruit"
+        type="java:mx.edu.utng.ws.Fruit"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

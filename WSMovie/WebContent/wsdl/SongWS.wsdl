@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addSong">
+    <complexType>
+     <sequence>
+      <element name="song" type="impl:Song"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Song">
+    <sequence>
+     <element name="album" nillable="true" type="xsd:string"/>
+     <element name="author" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="year" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="addSongResponse">
+    <complexType>
+     <sequence>
+      <element name="addSongReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateSong">
+    <complexType>
+     <sequence>
+      <element name="song" type="impl:Song"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateSongResponse">
+    <complexType>
+     <sequence>
+      <element name="updateSongReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSongs">
+    <complexType/>
+   </element>
+   <element name="getSongsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getSongsReturn" type="impl:Song"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeSong">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeSongResponse">
+    <complexType>
+     <sequence>
+      <element name="removeSongReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSongbyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSongbyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getSongbyIdReturn" type="impl:Song"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getSongbyIdResponse">
+
+      <wsdl:part element="impl:getSongbyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSongbyIdRequest">
+
+      <wsdl:part element="impl:getSongbyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addSongResponse">
+
+      <wsdl:part element="impl:addSongResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateSongResponse">
+
+      <wsdl:part element="impl:updateSongResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSongsRequest">
+
+      <wsdl:part element="impl:getSongs" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSongsResponse">
+
+      <wsdl:part element="impl:getSongsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addSongRequest">
+
+      <wsdl:part element="impl:addSong" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeSongResponse">
+
+      <wsdl:part element="impl:removeSongResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateSongRequest">
+
+      <wsdl:part element="impl:updateSong" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeSongRequest">
+
+      <wsdl:part element="impl:removeSong" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SongWS">
+
+      <wsdl:operation name="addSong">
+
+         <wsdl:input message="impl:addSongRequest" name="addSongRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addSongResponse" name="addSongResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateSong">
+
+         <wsdl:input message="impl:updateSongRequest" name="updateSongRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateSongResponse" name="updateSongResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSongs">
+
+         <wsdl:input message="impl:getSongsRequest" name="getSongsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSongsResponse" name="getSongsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeSong">
+
+         <wsdl:input message="impl:removeSongRequest" name="removeSongRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeSongResponse" name="removeSongResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSongbyId">
+
+         <wsdl:input message="impl:getSongbyIdRequest" name="getSongbyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSongbyIdResponse" name="getSongbyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SongWSSoapBinding" type="impl:SongWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addSong">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addSongRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addSongResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateSong">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateSongRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateSongResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSongs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSongsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSongsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeSong">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeSongRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeSongResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSongbyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSongbyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSongbyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SongWSService">
+
+      <wsdl:port binding="impl:SongWSSoapBinding" name="SongWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/SongWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="updateDocument">
+    <complexType>
+     <sequence>
+      <element name="document" type="impl:Document"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Document">
+    <sequence>
+     <element name="active" nillable="true" type="xsd:string"/>
+     <element name="date" nillable="true" type="xsd:string"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="university" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="updateDocumentResponse">
+    <complexType>
+     <sequence>
+      <element name="updateDocumentReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeDocument">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeDocumentResponse">
+    <complexType>
+     <sequence>
+      <element name="removeDocumentReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDocuments">
+    <complexType/>
+   </element>
+   <element name="getDocumentsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getDocumentsReturn" type="impl:Document"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addDocument">
+    <complexType>
+     <sequence>
+      <element name="document" type="impl:Document"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addDocumentResponse">
+    <complexType>
+     <sequence>
+      <element name="addDocumentReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDocumentbyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDocumentbyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getDocumentbyIdReturn" type="impl:Document"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDocumentsResponse">
+
+      <wsdl:part element="impl:getDocumentsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addDocumentResponse">
+
+      <wsdl:part element="impl:addDocumentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDocumentbyIdResponse">
+
+      <wsdl:part element="impl:getDocumentbyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDocumentsRequest">
+
+      <wsdl:part element="impl:getDocuments" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeDocumentResponse">
+
+      <wsdl:part element="impl:removeDocumentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDocumentbyIdRequest">
+
+      <wsdl:part element="impl:getDocumentbyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDocumentRequest">
+
+      <wsdl:part element="impl:updateDocument" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeDocumentRequest">
+
+      <wsdl:part element="impl:removeDocument" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDocumentResponse">
+
+      <wsdl:part element="impl:updateDocumentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addDocumentRequest">
+
+      <wsdl:part element="impl:addDocument" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DocumentWS">
+
+      <wsdl:operation name="updateDocument">
+
+         <wsdl:input message="impl:updateDocumentRequest" name="updateDocumentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateDocumentResponse" name="updateDocumentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeDocument">
+
+         <wsdl:input message="impl:removeDocumentRequest" name="removeDocumentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeDocumentResponse" name="removeDocumentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDocuments">
+
+         <wsdl:input message="impl:getDocumentsRequest" name="getDocumentsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDocumentsResponse" name="getDocumentsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addDocument">
+
+         <wsdl:input message="impl:addDocumentRequest" name="addDocumentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addDocumentResponse" name="addDocumentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDocumentbyId">
+
+         <wsdl:input message="impl:getDocumentbyIdRequest" name="getDocumentbyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDocumentbyIdResponse" name="getDocumentbyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DocumentWSSoapBinding" type="impl:DocumentWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="updateDocument">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateDocumentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateDocumentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeDocument">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeDocumentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeDocumentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDocuments">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDocumentsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDocumentsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addDocument">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addDocumentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addDocumentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDocumentbyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDocumentbyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDocumentbyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DocumentWSService">
+
+      <wsdl:port binding="impl:DocumentWSSoapBinding" name="DocumentWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/DocumentWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

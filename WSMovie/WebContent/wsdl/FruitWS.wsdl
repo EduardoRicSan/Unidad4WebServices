@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addFruit">
+    <complexType>
+     <sequence>
+      <element name="fruit" type="impl:Fruit"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Fruit">
+    <sequence>
+     <element name="colour" nillable="true" type="xsd:string"/>
+     <element name="flavor" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="price" type="xsd:float"/>
+    </sequence>
+   </complexType>
+   <element name="addFruitResponse">
+    <complexType>
+     <sequence>
+      <element name="addFruitReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFruits">
+    <complexType/>
+   </element>
+   <element name="getFruitsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getFruitsReturn" type="impl:Fruit"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFruitbyId">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFruitbyIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getFruitbyIdReturn" type="impl:Fruit"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeFruit">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeFruitResponse">
+    <complexType>
+     <sequence>
+      <element name="removeFruitReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFruit">
+    <complexType>
+     <sequence>
+      <element name="fruit" type="impl:Fruit"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFruitResponse">
+    <complexType>
+     <sequence>
+      <element name="updateFruitReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addFruitResponse">
+
+      <wsdl:part element="impl:addFruitResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFruitsResponse">
+
+      <wsdl:part element="impl:getFruitsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFruitbyIdRequest">
+
+      <wsdl:part element="impl:getFruitbyId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFruitResponse">
+
+      <wsdl:part element="impl:updateFruitResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFruitsRequest">
+
+      <wsdl:part element="impl:getFruits" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFruitbyIdResponse">
+
+      <wsdl:part element="impl:getFruitbyIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeFruitRequest">
+
+      <wsdl:part element="impl:removeFruit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addFruitRequest">
+
+      <wsdl:part element="impl:addFruit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeFruitResponse">
+
+      <wsdl:part element="impl:removeFruitResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFruitRequest">
+
+      <wsdl:part element="impl:updateFruit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FruitWS">
+
+      <wsdl:operation name="addFruit">
+
+         <wsdl:input message="impl:addFruitRequest" name="addFruitRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addFruitResponse" name="addFruitResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFruits">
+
+         <wsdl:input message="impl:getFruitsRequest" name="getFruitsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFruitsResponse" name="getFruitsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFruitbyId">
+
+         <wsdl:input message="impl:getFruitbyIdRequest" name="getFruitbyIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFruitbyIdResponse" name="getFruitbyIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeFruit">
+
+         <wsdl:input message="impl:removeFruitRequest" name="removeFruitRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeFruitResponse" name="removeFruitResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFruit">
+
+         <wsdl:input message="impl:updateFruitRequest" name="updateFruitRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateFruitResponse" name="updateFruitResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FruitWSSoapBinding" type="impl:FruitWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addFruit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addFruitRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addFruitResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFruits">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFruitsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFruitsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFruitbyId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFruitbyIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFruitbyIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeFruit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeFruitRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeFruitResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFruit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateFruitRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateFruitResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FruitWSService">
+
+      <wsdl:port binding="impl:FruitWSSoapBinding" name="FruitWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/FruitWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

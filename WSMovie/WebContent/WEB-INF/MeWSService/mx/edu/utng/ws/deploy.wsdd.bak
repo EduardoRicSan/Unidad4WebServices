@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MeWSService WSDL service -->
+
+  <service name="MeWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="MeWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="MeWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.MeWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MeWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addMe" qname="operNS:addMe" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addMeReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:me" xmlns:pns="http://ws.utng.edu.mx" type="tns:Me" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="removeMe" qname="operNS:removeMe" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeMeReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getMine" qname="operNS:getMine" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getMineReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Me" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="updateMe" qname="operNS:updateMe" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:updateMeReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:me" xmlns:pns="http://ws.utng.edu.mx" type="tns:Me" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="getMebyId" qname="operNS:getMebyId" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getMebyIdReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Me" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="removeMe updateMe getMebyId getMine addMe"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:Me"
+        type="java:mx.edu.utng.ws.Me"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

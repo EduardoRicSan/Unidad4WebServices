@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DocumentWSService WSDL service -->
+
+  <service name="DocumentWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="DocumentWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="DocumentWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.DocumentWS"/>
+      <parameter name="wsdlPortType" value="DocumentWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://ws.utng.edu.mx" xmlns:retNS="http://ws.utng.edu.mx" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateDocument" qname="operNS:updateDocument" returnQName="retNS:updateDocumentReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://ws.utng.edu.mx" xmlns:tns="http://ws.utng.edu.mx" qname="pns:document" type="tns:Document"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.utng.edu.mx" xmlns:retNS="http://ws.utng.edu.mx" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="removeDocument" qname="operNS:removeDocument" returnQName="retNS:removeDocumentReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://ws.utng.edu.mx" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.utng.edu.mx" xmlns:retNS="http://ws.utng.edu.mx" xmlns:rtns="http://ws.utng.edu.mx" name="getDocuments" qname="operNS:getDocuments" returnQName="retNS:getDocumentsReturn" returnType="rtns:Document" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://ws.utng.edu.mx" xmlns:retNS="http://ws.utng.edu.mx" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addDocument" qname="operNS:addDocument" returnQName="retNS:addDocumentReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://ws.utng.edu.mx" xmlns:tns="http://ws.utng.edu.mx" qname="pns:document" type="tns:Document"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.utng.edu.mx" xmlns:retNS="http://ws.utng.edu.mx" xmlns:rtns="http://ws.utng.edu.mx" name="getDocumentbyId" qname="operNS:getDocumentbyId" returnQName="retNS:getDocumentbyIdReturn" returnType="rtns:Document" soapAction="">
+        <parameter xmlns:pns="http://ws.utng.edu.mx" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="addDocument getDocuments getDocumentbyId removeDocument updateDocument"/>
+
+      <typeMapping xmlns:ns="http://ws.utng.edu.mx" qname="ns:Document" type="java:mx.edu.utng.ws.Document" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

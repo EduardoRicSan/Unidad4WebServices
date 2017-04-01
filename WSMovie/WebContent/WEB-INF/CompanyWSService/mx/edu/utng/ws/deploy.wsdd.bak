@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CompanyWSService WSDL service -->
+
+  <service name="CompanyWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="CompanyWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="CompanyWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.CompanyWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CompanyWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addCompany" qname="operNS:addCompany" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addCompanyReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:company" xmlns:pns="http://ws.utng.edu.mx" type="tns:Company" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="getCompanybyId" qname="operNS:getCompanybyId" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getCompanybyIdReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Company" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateCompany" qname="operNS:updateCompany" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:updateCompanyReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:company" xmlns:pns="http://ws.utng.edu.mx" type="tns:Company" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="removeCompany" qname="operNS:removeCompany" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeCompanyReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCompanies" qname="operNS:getCompanies" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getCompaniesReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Company" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="removeCompany getCompanies getCompanybyId addCompany updateCompany"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:Company"
+        type="java:mx.edu.utng.ws.Company"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
